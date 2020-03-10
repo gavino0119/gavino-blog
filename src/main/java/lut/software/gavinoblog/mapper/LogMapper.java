@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @date 2020/3/8 18:28
  */
 @Repository
-@Mapper
+//@Mapper
 public interface LogMapper {
     /**
      * 添加日志

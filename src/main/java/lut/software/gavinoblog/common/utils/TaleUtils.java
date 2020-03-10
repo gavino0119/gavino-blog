@@ -47,44 +47,44 @@ public class TaleUtils {
         return (User) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
     }
 
-//    /**
-//     * 获取cookie中的用户ID
-//     * @param request
-//     * @return
-//     */
-//    public static Integer getCookieUid(HttpServletRequest request){
-//        if (null != request) {
-//            Cookie cookie = cookieRaw(WebConst.USER_IN_COOKIE,request);
-//            if (cookie != null && cookie.getValue() != null) {
-//                try {
-//                    String uid = Tools.deAes(cookie.getValue(), WebConst.AES_SALT);
-//                    return StringUtils.isNotBlank(uid) && Tools.isNumber(uid) ? Integer.valueOf(uid) : null;
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//        return null;
-//    }
-//
-//    /**
-//     * 从cookies中获取指定cookie
-//     * @param name          名称
-//     * @param request       请求
-//     * @return  cookie
-//     */
-//    private static Cookie cookieRaw(String name, HttpServletRequest request) {
-//        Cookie[] servletCookies = request.getCookies();
-//        if (servletCookies == null) {
-//            return null;
-//        }
-//        for (Cookie c: servletCookies) {
-//            if (c.getName().equals(name)) {
-//                return c;
-//            }
-//        }
-//        return null;
-//    }
+    /**
+     * 获取cookie中的用户ID
+     * @param request
+     * @return
+     */
+    public static Integer getCookieUid(HttpServletRequest request){
+        if (null != request) {
+            Cookie cookie = cookieRaw(WebConst.USER_IN_COOKIE,request);
+            if (cookie != null && cookie.getValue() != null) {
+                try {
+                    String uid = Tools.deAes(cookie.getValue(), WebConst.AES_SALT);
+                    return StringUtils.isNotBlank(uid) && Tools.isNumber(uid) ? Integer.valueOf(uid) : null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 从cookies中获取指定cookie
+     * @param name          名称
+     * @param request       请求
+     * @return  cookie
+     */
+    private static Cookie cookieRaw(String name, HttpServletRequest request) {
+        Cookie[] servletCookies = request.getCookies();
+        if (servletCookies == null) {
+            return null;
+        }
+        for (Cookie c: servletCookies) {
+            if (c.getName().equals(name)) {
+                return c;
+            }
+        }
+        return null;
+    }
 
     /**
      * 设置记住密码cookie

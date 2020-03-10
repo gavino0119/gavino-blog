@@ -17,4 +17,11 @@ public interface UserService {
      * @return
      */
     User login(String username, String password);
+
+    /**
+     * 通过用户ID获取用户信息
+     * @param uid   主键
+     * @return
+     */
+    User getUserInfoById(Integer uid);
 }

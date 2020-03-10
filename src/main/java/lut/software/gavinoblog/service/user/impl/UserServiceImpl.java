@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
             throw BusinessException.withErrorCode(ErrorConstant.Auth.USERNAME_PASSWORD_ERROR);
         return user;
     }
+
+    @Override
+    public User getUserInfoById(Integer uid) {
+        return userMapper.getUserInfoById(uid);
+    }
 }

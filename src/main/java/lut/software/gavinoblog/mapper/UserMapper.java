@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  * @date 2020/3/5 15:51
  */
-@Mapper
+
 @Repository
 public interface UserMapper {
     /**
@@ -20,4 +20,11 @@ public interface UserMapper {
      * @return
      */
     User getUserInfoByCond(@Param("username") String username, @Param("password") String password);
+
+    /**
+     * 通过用户ID获取用户信息
+     * @param uid
+     * @return
+     */
+    User getUserInfoById(Integer uid);
 }
