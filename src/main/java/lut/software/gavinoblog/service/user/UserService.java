@@ -24,4 +24,11 @@ public interface UserService {
      * @return
      */
     User getUserInfoById(Integer uid);
+
+    /**
+     * 更改用户信息
+     * @param user  user对象
+     * @return
+     */
+    int updateUserInfo(User user);
 }

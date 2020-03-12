@@ -5,9 +5,8 @@ spring:
   datasource:
     name: mysql_blog
     type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/lu_tale?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/blog_db?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true
       username: root
       password: root
 
@@ -18,8 +17,8 @@ spring:
     encoding: utf-8
 
   #
-#mybatis:
-  #mapper-locations: classpath:mapper/*.xml
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
 
 
 logging:

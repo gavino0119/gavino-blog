@@ -27,4 +27,11 @@ public interface UserMapper {
      * @return
      */
     User getUserInfoById(Integer uid);
+
+    /**
+     * 更改用户信息
+     * @param user
+     * @return
+     */
+    int updateUserInfo(User user);
 }

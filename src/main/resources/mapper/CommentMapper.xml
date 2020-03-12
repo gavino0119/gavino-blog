@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lut.software.gavinoblog.mapper.CommentMapper">
+
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_comments
+    </sql>
+    <!--文章表列名-->
+    <sql id="BASE_COLUMN">
+        cm.coid, cm.cid, cm.created, cm.author, cm.authorId, cm.ownerId, cm.mail,
+        cm.url, cm.ip, cm.agent, cm.type, cm.status, cm.parent, cm.content
+    </sql>
+
+
+
+    <!--获取评论总数-->
+    <select id="getCommentCount" resultType="java.lang.Long">
+        SELECT
+          COUNT(*)
+        FROM
+          <include refid="BASE_TABLE"/>
+    </select>
+
+    <!--根据条件查找评论列表-->
+    <select id="getCommentsByCond" resultType="lut.software.gavinoblog.pojo.Comment" parameterType="lut.software.gavinoblog.dto.cond.CommentCond">
+        SELECT
+          <include refid="BASE_COLUMN"/>
+        FROM
+          <include refid="BASE_TABLE"/> AS cm
+        <where>
+            <if test="status != null">
+                AND cm.status = #{status, jdbcType=VARCHAR}
+            </if>
+            <if test="startTime != null">
+                AND cm.created &gt;= #{startTime, jdbcType=INTEGER}
+            </if>
+            <if test="endTime != null">
+                AND cm.created &lt;= #{endTime, jdbcType=INTEGER}
+            </if>
+            <if test="parent != null">
+                AND cm.parent = #{parent, jdbcType=INTEGER}
+            </if>
+        </where>
+        ORDER BY cm.created
+    </select>
+
+
+
+</mapper>

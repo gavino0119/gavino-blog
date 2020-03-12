@@ -1,5 +1,8 @@
 package lut.software.gavinoblog.service.log;
 
+import com.github.pagehelper.PageInfo;
+import lut.software.gavinoblog.pojo.Log;
+
 /**
  * @author ywg
  * @version 1.0
@@ -15,4 +18,12 @@ public interface LogService {
      * @param authorId  产生人
      */
     void addLog(String action, String data, String ip, Integer authorId);
+
+    /**
+     * 获取日志
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageInfo<Log> getLogs(int pageNum, int pageSize);
 }

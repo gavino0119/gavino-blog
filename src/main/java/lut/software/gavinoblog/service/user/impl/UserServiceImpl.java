@@ -9,6 +9,7 @@ import lut.software.gavinoblog.service.user.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author ywg
@@ -35,5 +36,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserInfoById(Integer uid) {
         return userMapper.getUserInfoById(uid);
+    }
+
+    // 开启事务
+    @Transactional
+    @Override
+    public int updateUserInfo(User user) {
+        if (null == user.getUid())
+            throw BusinessException.withErrorCode("用户编号不能为空");
+        return userMapper.updateUserInfo(user);
     }
 }
