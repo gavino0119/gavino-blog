@@ -1,0 +1,132 @@
+2020-04-29 15:05:21.815  INFO 2368 --- [main] l.s.gavinoblog.GavinoBlogApplication     : Starting GavinoBlogApplication on Gavino with PID 2368 (started by dell in E:\diploma project\gavino-blog)
+2020-04-29 15:05:21.842  INFO 2368 --- [main] l.s.gavinoblog.GavinoBlogApplication     : The following profiles are active: dev
+2020-04-29 15:05:24.094  INFO 2368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-04-29 15:05:24.103  INFO 2368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-29 15:05:24.103  INFO 2368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-29 15:05:24.241  INFO 2368 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-29 15:05:24.242  INFO 2368 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2310 ms
+2020-04-29 15:05:24.329  INFO 2368 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-04-29 15:05:25.083  INFO 2368 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-04-29 15:05:25.642  WARN 2368 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2020-04-29 15:05:25.764  INFO 2368 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-29 15:05:25.865  INFO 2368 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-29 15:05:26.213  INFO 2368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-04-29 15:05:26.216  INFO 2368 --- [main] l.s.gavinoblog.GavinoBlogApplication     : Started GavinoBlogApplication in 5.436 seconds (JVM running for 7.253)
+2020-04-29 15:05:26.257  INFO 2368 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-29 15:05:26.257  INFO 2368 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-29 15:05:26.267  INFO 2368 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-04-29 15:05:26.278  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.282  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin，来路地址：127.0.0.1
+2020-04-29 15:05:26.292  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.292  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/login，来路地址：127.0.0.1
+2020-04-29 15:05:26.787  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.787  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.788  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/js/base.js，来路地址：127.0.0.1
+2020-04-29 15:05:26.788  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/css/style.min.css，来路地址：127.0.0.1
+2020-04-29 15:05:26.995  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.995  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:26.996  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/images/small/bg.jpg，来路地址：127.0.0.1
+2020-04-29 15:05:26.996  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/images/bg/l.jpg，来路地址：127.0.0.1
+2020-04-29 15:05:27.047  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:27.047  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/error，来路地址：127.0.0.1
+2020-04-29 15:05:27.121  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:27.121  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/images/favicon.png，来路地址：127.0.0.1
+2020-04-29 15:05:30.764  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:30.764  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/login，来路地址：127.0.0.1
+2020-04-29 15:05:30.830 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.g.m.UserMapper.getUserInfoByCond     : ==>  Preparing: SELECT uid,username,password,email,homeUrl,screenName,created,activated,logged,groupName FROM t_users WHERE username = ? AND password = ? 
+2020-04-29 15:05:30.983 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.g.m.UserMapper.getUserInfoByCond     : ==> Parameters: admin(String), a66abb5684c45962d887564f08346e8d(String)
+2020-04-29 15:05:31.159 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.g.m.UserMapper.getUserInfoByCond     : <==      Total: 1
+2020-04-29 15:05:31.161 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.gavinoblog.mapper.LogMapper.addLog   : ==>  Preparing: INSERT INTO t_logs ( action, data, authorId, ip, created ) VALUES( ?, ?, ?, ?, UNIX_TIMESTAMP(NOW()) ) 
+2020-04-29 15:05:31.162 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.gavinoblog.mapper.LogMapper.addLog   : ==> Parameters: 登录后台(String), admin用户(String), 1(Integer), 127.0.0.1(String)
+2020-04-29 15:05:31.268 DEBUG 2368 --- [http-nio-8888-exec-8] l.s.gavinoblog.mapper.LogMapper.addLog   : <==    Updates: 1
+2020-04-29 15:05:32.685  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:32.686  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/index，来路地址：127.0.0.1
+2020-04-29 15:05:32.689  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.controller.admin.IndexController   : Enter admin index method
+2020-04-29 15:05:32.743 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getCommentsByCond_COUNT        : ==>  Preparing: SELECT count(0) FROM t_comments AS cm 
+2020-04-29 15:05:32.743 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getCommentsByCond_COUNT        : ==> Parameters: 
+2020-04-29 15:05:32.840 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getCommentsByCond_COUNT        : <==      Total: 1
+2020-04-29 15:05:32.843 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getArticleByCond_COUNT         : ==>  Preparing: SELECT count(0) FROM t_contents AS c 
+2020-04-29 15:05:32.843 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getArticleByCond_COUNT         : ==> Parameters: 
+2020-04-29 15:05:32.901 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.C.getArticleByCond_COUNT         : <==      Total: 1
+2020-04-29 15:05:32.902 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.ContentMapper.getArticleCount    : ==>  Preparing: SELECT COUNT(*) FROM t_contents 
+2020-04-29 15:05:32.902 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.ContentMapper.getArticleCount    : ==> Parameters: 
+2020-04-29 15:05:32.903 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.ContentMapper.getArticleCount    : <==      Total: 1
+2020-04-29 15:05:32.903 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.CommentMapper.getCommentCount    : ==>  Preparing: SELECT COUNT(*) FROM t_comments 
+2020-04-29 15:05:32.903 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.CommentMapper.getCommentCount    : ==> Parameters: 
+2020-04-29 15:05:32.904 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.m.CommentMapper.getCommentCount    : <==      Total: 1
+2020-04-29 15:05:32.905 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.mapper.LogMapper.getLogs_COUNT     : ==>  Preparing: SELECT count(0) FROM t_logs AS l 
+2020-04-29 15:05:32.905 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.mapper.LogMapper.getLogs_COUNT     : ==> Parameters: 
+2020-04-29 15:05:32.937 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.g.mapper.LogMapper.getLogs_COUNT     : <==      Total: 1
+2020-04-29 15:05:32.937 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.gavinoblog.mapper.LogMapper.getLogs  : ==>  Preparing: SELECT l.id, l.action, l.data, l.authorId, l.ip, l.created FROM t_logs AS l ORDER BY l.id DESC LIMIT ? 
+2020-04-29 15:05:32.937 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.gavinoblog.mapper.LogMapper.getLogs  : ==> Parameters: 5(Integer)
+2020-04-29 15:05:32.958 DEBUG 2368 --- [http-nio-8888-exec-9] l.s.gavinoblog.mapper.LogMapper.getLogs  : <==      Total: 5
+2020-04-29 15:05:32.958  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.controller.admin.IndexController   : Exit admin index method
+2020-04-29 15:05:33.053  INFO 2368 --- [http-nio-8888-exec-9] l.s.gavinoblog.common.utils.Commons      : 当前email----> gavino0119@163.com
+2020-04-29 15:05:33.079  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:33.080  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/images/logo.png，来路地址：127.0.0.1
+2020-04-29 15:05:33.080  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:33.080  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/js/jquery.app.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.004  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.004  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/article/publish，来路地址：127.0.0.1
+2020-04-29 15:05:40.137  INFO 2368 --- [http-nio-8888-exec-5] l.s.gavinoblog.common.utils.Commons      : 当前email----> gavino0119@163.com
+2020-04-29 15:05:40.160  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.160  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/tagsinput/jquery.tagsinput.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/toggles/toggles.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/select2.dist.css/select2-bootstrap.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/md/css/style.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.161  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/css/editormd.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.168  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.168  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/tagsinput/jquery.tagsinput.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.217  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.217  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/plugins/jquery-multi-select/jquery.quicksearch.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.246  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.246  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/src/editormd.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.260  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.260  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/js/article.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.375  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.375  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/fonts/fontawesome-webfont.woff2，来路地址：127.0.0.1
+2020-04-29 15:05:40.567  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.567  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.567  INFO 2368 --- [http-nio-8888-exec-9] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/addon/dialog/dialog.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-6] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/codemirror.min.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-10] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/codemirror.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-2] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/addon/search/matchesonscrollbar.css，来路地址：127.0.0.1
+2020-04-29 15:05:40.568  INFO 2368 --- [http-nio-8888-exec-7] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/images/loading.gif，来路地址：127.0.0.1
+2020-04-29 15:05:40.798  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.798  INFO 2368 --- [http-nio-8888-exec-3] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/modes.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:40.897  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:40.897  INFO 2368 --- [http-nio-8888-exec-1] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/codemirror/addons.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:41.027  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:41.027  INFO 2368 --- [http-nio-8888-exec-8] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/marked.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:41.081  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:41.081  INFO 2368 --- [http-nio-8888-exec-4] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/editormd/lib/prettify.min.js，来路地址：127.0.0.1
+2020-04-29 15:05:51.885  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : UserAgent：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36
+2020-04-29 15:05:51.885  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.c.interceptor.BaseInterceptor      : 用户访问地址：/admin/index，来路地址：127.0.0.1
+2020-04-29 15:05:51.886  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.controller.admin.IndexController   : Enter admin index method
+2020-04-29 15:05:51.888 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getCommentsByCond_COUNT        : ==>  Preparing: SELECT count(0) FROM t_comments AS cm 
+2020-04-29 15:05:51.888 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getCommentsByCond_COUNT        : ==> Parameters: 
+2020-04-29 15:05:51.889 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getCommentsByCond_COUNT        : <==      Total: 1
+2020-04-29 15:05:51.890 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getArticleByCond_COUNT         : ==>  Preparing: SELECT count(0) FROM t_contents AS c 
+2020-04-29 15:05:51.891 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getArticleByCond_COUNT         : ==> Parameters: 
+2020-04-29 15:05:51.891 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.C.getArticleByCond_COUNT         : <==      Total: 1
+2020-04-29 15:05:51.892 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.ContentMapper.getArticleCount    : ==>  Preparing: SELECT COUNT(*) FROM t_contents 
+2020-04-29 15:05:51.892 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.ContentMapper.getArticleCount    : ==> Parameters: 
+2020-04-29 15:05:51.892 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.ContentMapper.getArticleCount    : <==      Total: 1
+2020-04-29 15:05:51.893 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.CommentMapper.getCommentCount    : ==>  Preparing: SELECT COUNT(*) FROM t_comments 
+2020-04-29 15:05:51.893 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.CommentMapper.getCommentCount    : ==> Parameters: 
+2020-04-29 15:05:51.893 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.m.CommentMapper.getCommentCount    : <==      Total: 1
+2020-04-29 15:05:51.894 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.mapper.LogMapper.getLogs_COUNT     : ==>  Preparing: SELECT count(0) FROM t_logs AS l 
+2020-04-29 15:05:51.894 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.mapper.LogMapper.getLogs_COUNT     : ==> Parameters: 
+2020-04-29 15:05:51.895 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.g.mapper.LogMapper.getLogs_COUNT     : <==      Total: 1
+2020-04-29 15:05:51.895 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.gavinoblog.mapper.LogMapper.getLogs  : ==>  Preparing: SELECT l.id, l.action, l.data, l.authorId, l.ip, l.created FROM t_logs AS l ORDER BY l.id DESC LIMIT ? 
+2020-04-29 15:05:51.895 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.gavinoblog.mapper.LogMapper.getLogs  : ==> Parameters: 5(Integer)
+2020-04-29 15:05:51.897 DEBUG 2368 --- [http-nio-8888-exec-5] l.s.gavinoblog.mapper.LogMapper.getLogs  : <==      Total: 5
+2020-04-29 15:05:51.897  INFO 2368 --- [http-nio-8888-exec-5] l.s.g.controller.admin.IndexController   : Exit admin index method
+2020-04-29 15:05:51.903  INFO 2368 --- [http-nio-8888-exec-5] l.s.gavinoblog.common.utils.Commons      : 当前email----> gavino0119@163.com

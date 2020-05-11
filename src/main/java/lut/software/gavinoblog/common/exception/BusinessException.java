@@ -1,5 +1,6 @@
 package lut.software.gavinoblog.common.exception;
 
+import lut.software.gavinoblog.common.utils.APIResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,7 +23,7 @@ public class BusinessException extends RuntimeException {
     private static final Logger LOGGER = LoggerFactory.getLogger(BusinessException.class);
     protected String errorCode;
     protected String[] errorMessageArguments;
-//    protected APIResponse apiResponse;
+    protected APIResponse apiResponse;
 
     protected BusinessException() {
         this("");
@@ -62,42 +63,42 @@ public class BusinessException extends RuntimeException {
         return this;
     }
 
-//    public APIResponse response() {
-//        if (this.apiResponse != null) {
-//            return this.apiResponse;
-//        } else {
-//            this.apiResponse = APIResponse.widthCode(this.getErrorCode());
-//            if (this.getErrorMessageArguments() != null && this.getErrorMessageArguments().length > 0) {
-//                try {
-//                    this.apiResponse.setMsg(MessageFormat.format(this.apiResponse.getMsg(),this.getErrorMessageArguments()));
-//                } catch (Exception var2) {
-//                    LOGGER.error(var2.getMessage());
-//                }
-//            }
-//            return this.apiResponse;
-//        }
-//    }
+    public APIResponse response() {
+        if (this.apiResponse != null) {
+            return this.apiResponse;
+        } else {
+            this.apiResponse = APIResponse.widthCode(this.getErrorCode());
+            if (this.getErrorMessageArguments() != null && this.getErrorMessageArguments().length > 0) {
+                try {
+                    this.apiResponse.setMsg(MessageFormat.format(this.apiResponse.getMsg(),this.getErrorMessageArguments()));
+                } catch (Exception var2) {
+                    LOGGER.error(var2.getMessage());
+                }
+            }
+            return this.apiResponse;
+        }
+    }
 
 
 
     /**
      * 该注解标识该方法可以用作异常处理,拦截Exception级别的异常信息
      * */
-//    @ExceptionHandler(Exception.class)
-//    public ModelAndView exceptionHandler(HttpServletRequest http, Exception e) {
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        //记录日志
-//        //会将,后的参数传递到{}中，顺序传递
-//        LOGGER.error("请求路径：{}, 异常信息：{}", http.getRequestURI(), e);
-//
-//        modelAndView.addObject("url", http.getRequestURI());
-//        modelAndView.addObject("exception", e);
-//        //设置返回到哪个页面
-//        modelAndView.setViewName("error/error");
-//
-//        return modelAndView;
-//    }
+    @ExceptionHandler(Exception.class)
+    public ModelAndView exceptionHandler(HttpServletRequest http, Exception e) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        //记录日志
+        //会将,后的参数传递到{}中，顺序传递
+        LOGGER.error("请求路径：{}, 异常信息：{}", http.getRequestURI(), e);
+
+        modelAndView.addObject("url", http.getRequestURI());
+        modelAndView.addObject("exception", e);
+        //设置返回到哪个页面
+        modelAndView.setViewName("error/error");
+
+        return modelAndView;
+    }
 
 }
