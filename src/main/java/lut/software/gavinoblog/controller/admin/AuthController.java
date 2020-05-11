@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiParam;
 import lut.software.gavinoblog.common.constant.LogActions;
 import lut.software.gavinoblog.common.constant.WebConst;
 import lut.software.gavinoblog.common.exception.BusinessException;
+import lut.software.gavinoblog.common.utils.APIResponse;
 import lut.software.gavinoblog.common.utils.ResultResponse;
 import lut.software.gavinoblog.common.utils.TaleUtils;
 import lut.software.gavinoblog.controller.BaseController;
@@ -19,8 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * @author ywg
@@ -32,16 +36,18 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/admin")
 public class AuthController extends BaseController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private LogService logService;
 
 
     @ApiOperation("跳转登录页")
-    @GetMapping("/login")
+    @GetMapping(value = "/login")
     public String login() {
         return "admin/login";
     }
@@ -50,7 +56,7 @@ public class AuthController extends BaseController {
     @ApiOperation("登录")
     @PostMapping(value = "/login")
     @ResponseBody
-    public ResultResponse toLogin(
+    public APIResponse toLogin(
             HttpServletRequest request,
             HttpServletResponse response,
             @ApiParam(name = "username", value = "用户名", required = true)
@@ -79,7 +85,7 @@ public class AuthController extends BaseController {
             LOGGER.error(e.getMessage());
             error_count = null == error_count ? 1 : error_count + 1;
             if (error_count > 3) {
-                return ResultResponse.fail("您输入密码已经错误超过3次，请10分钟后尝试");
+                return APIResponse.fail("您输入密码已经错误超过3次，请10分钟后尝试");
             }
             System.out.println(error_count);
             // 设置缓存为10分钟
@@ -90,10 +96,29 @@ public class AuthController extends BaseController {
             } else {
                 LOGGER.error(msg,e);
             }
-            return ResultResponse.fail(msg);
+            return APIResponse.fail(msg);
         }
         // 返回登录成功信息
-        return ResultResponse.success();
+        return APIResponse.success();
     }
 
+    @RequestMapping(value = "/logout")
+    public void logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+        // 移除session
+        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
+        // 设置cookie值和时间为空
+        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, "");
+        cookie.setValue(null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        try {
+            // 跳转到登录页面
+            response.sendRedirect("/admin/login");
+        } catch (IOException e) {
+            e.printStackTrace();
+            LOGGER.error("注销失败",e);
+        }
+    }
 }
+

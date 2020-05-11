@@ -1,8 +1,13 @@
 package lut.software.gavinoblog.common.utils;
 
 import lut.software.gavinoblog.common.constant.WebConst;
+import lut.software.gavinoblog.controller.admin.AttachController;
 import lut.software.gavinoblog.pojo.User;
 import org.apache.commons.lang3.StringUtils;
+import org.commonmark.Extension;
+import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.node.Node;
+import org.commonmark.renderer.html.HtmlRenderer;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.Cookie;
@@ -19,7 +24,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 /**
  * @author ywg
  * @version 1.0
@@ -27,6 +31,7 @@ import java.util.regex.Pattern;
  * @date 2020/3/7 17:38
  */
 public class TaleUtils {
+
     /**
      * 匹配邮箱正则
      */
@@ -105,43 +110,43 @@ public class TaleUtils {
         }
     }
 
-//    /**
-//     * 获取保存文件的位置，jar所在的目录的路径
-//     * @return
-//     */
-//    public static String getUploadFilePath() {
-//        String path = TaleUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-//        path = path.substring(1, path.length());
-//        try {
-//            java.net.URLDecoder.decode(path, "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        int lastIndex = path.lastIndexOf("/") + 1;
-//        path = path.substring(0, lastIndex);
-//        File file = new File("");
-//        return file.getAbsolutePath() + "/";
-//    }
-//
-//    public static String getFileKey(String name) {
-//        String prefix = "/upload/" + DateKit.dateFormat(new Date(), "yyyy/MM");
-//        if (!new File(AttachController.CLASSPATH + prefix).exists()) {
-//            new File(AttachController.CLASSPATH + prefix).mkdirs();
-//        }
-//        name = StringUtils.trimToNull(name);
-//        if (name == null) {
-//            return prefix + "/" + UUID.UU32() + "." + null;
-//        } else {
-//            name = name.replace('\\','/');
-//            name = name.substring(name.lastIndexOf("/") + 1);
-//            int index = name.lastIndexOf(".");
-//            String ext = null;
-//            if (index > 0) {
-//                ext = StringUtils.trimToNull(name.substring(index + 1));
-//            }
-//            return prefix + "/" + UUID.UU32() + "." + (ext == null ? null : (ext));
-//        }
-//    }
+    /**
+     * 获取保存文件的位置，jar所在的目录的路径
+     * @return
+     */
+    public static String getUploadFilePath() {
+        String path = TaleUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        path = path.substring(1, path.length());
+        try {
+            java.net.URLDecoder.decode(path, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        int lastIndex = path.lastIndexOf("/") + 1;
+        path = path.substring(0, lastIndex);
+        File file = new File("");
+        return file.getAbsolutePath() + "/";
+    }
+
+    public static String getFileKey(String name) {
+        String prefix = "/upload/" + DateKit.dateFormat(new Date(), "yyyy/MM");
+        if (!new File(AttachController.CLASSPATH + prefix).exists()) {
+            new File(AttachController.CLASSPATH + prefix).mkdirs();
+        }
+        name = StringUtils.trimToNull(name);
+        if (name == null) {
+            return prefix + "/" + UUID.UU32() + "." + null;
+        } else {
+            name = name.replace('\\','/');
+            name = name.substring(name.lastIndexOf("/") + 1);
+            int index = name.lastIndexOf(".");
+            String ext = null;
+            if (index > 0) {
+                ext = StringUtils.trimToNull(name.substring(index + 1));
+            }
+            return prefix + "/" + UUID.UU32() + "." + (ext == null ? null : (ext));
+        }
+    }
 
     /**
      * 判断文件是否是图片类型
@@ -200,19 +205,19 @@ public class TaleUtils {
      * @param markdown
      * @return
      */
-//    public static String mdToHtml(String markdown) {
-//        if (StringUtils.isBlank(markdown)) {
-//            return "";
-//        }
-//        java.util.List<Extension> extensions = Arrays.asList(TablesExtension.create());
-//        org.commonmark.parser.Parser parser = org.commonmark.parser.Parser.builder().extensions(extensions).build();
-//        Node document = parser.parse(markdown);
-//        HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
-//        String content = renderer.render(document);
-//        content = Commons.emoji(content);
-//        return content;
-//
-//    }
+    public static String mdToHtml(String markdown) {
+        if (StringUtils.isBlank(markdown)) {
+            return "";
+        }
+        java.util.List<Extension> extensions = Arrays.asList(TablesExtension.create());
+        org.commonmark.parser.Parser parser = org.commonmark.parser.Parser.builder().extensions(extensions).build();
+        Node document = parser.parse(markdown);
+        HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
+        String content = renderer.render(document);
+        content = Commons.emoji(content);
+        return content;
+
+    }
 
     /**
      * 判断是否是邮箱

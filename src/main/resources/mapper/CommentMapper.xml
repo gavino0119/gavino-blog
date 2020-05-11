@@ -12,6 +12,51 @@
         cm.url, cm.ip, cm.agent, cm.type, cm.status, cm.parent, cm.content
     </sql>
 
+    <!--添加评论-->
+    <insert id="addComment" parameterType="lut.software.gavinoblog.pojo.Comment">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            cid, created, author,authorId,ownerId,mail,
+            url, ip, agent, type, status, parent, content
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{cid, jdbcType=INTEGER},
+            #{created, jdbcType=INTEGER},
+            #{author, jdbcType=VARCHAR},
+            #{authorId, jdbcType=INTEGER},
+            #{ownerId, jdbcType=INTEGER},
+            #{email, jdbcType=VARCHAR},
+            #{url, jdbcType=VARCHAR},
+            #{ip, jdbcType=VARCHAR},
+            #{agent, jdbcType=VARCHAR},
+            #{type, jdbcType=VARCHAR},
+            #{status, jdbcType=VARCHAR},
+            #{parent, jdbcType=INTEGER},
+            #{content, jdbcType=LONGVARCHAR}
+        </trim>
+    </insert>
+    <!--根据文章ID获取评论-->
+    <select id="getCommentByCId" resultType="lut.software.gavinoblog.pojo.Comment">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS cm
+        WHERE
+        cm.cid = #{cid, jdbcType=INTEGER}
+        AND
+        cm.status = 'approved'
+        ORDER BY
+        cm.created
+    </select>
+
+    <!--删除评论-->
+    <delete id="deleteComment">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE
+        coid = #{coid, jdbcType=INTEGER}
+    </delete>
 
 
     <!--获取评论总数-->
@@ -44,7 +89,25 @@
         </where>
         ORDER BY cm.created
     </select>
+    <!--通过ID获取评论-->
+    <select id="getCommentById" resultType="lut.software.gavinoblog.pojo.Comment">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS cm
+        WHERE
+        cm.coid = #{coid, jdbcType=INTEGER}
+    </select>
 
+    <!--更新评论状态-->
+    <update id="updateCommentStatus">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        SET
+        status = #{status, jdbcType=VARCHAR}
+        WHERE
+        coid = #{coid, jdbcType=INTEGER}
+    </update>
 
 
 </mapper>

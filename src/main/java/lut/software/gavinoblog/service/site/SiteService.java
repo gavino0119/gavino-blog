@@ -2,6 +2,7 @@ package lut.software.gavinoblog.service.site;
 
 import lut.software.gavinoblog.common.constant.ErrorConstant;
 import lut.software.gavinoblog.dto.StatisticsDto;
+import lut.software.gavinoblog.pojo.Comment;
 import lut.software.gavinoblog.pojo.Content;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface SiteService {
      * @param limit
      * @return
      */
-    List<ErrorConstant.Comment> getComments(int limit);
+    List<Comment> getComments(int limit);
 
     /**
      * 获取文章列表

@@ -3,15 +3,15 @@ package lut.software.gavinoblog.controller.admin;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lut.software.gavinoblog.common.constant.ErrorConstant;
 import lut.software.gavinoblog.common.constant.LogActions;
 import lut.software.gavinoblog.common.constant.WebConst;
 import lut.software.gavinoblog.common.exception.BusinessException;
+import lut.software.gavinoblog.common.utils.APIResponse;
 import lut.software.gavinoblog.common.utils.GsonUtils;
-import lut.software.gavinoblog.common.utils.ResultResponse;
 import lut.software.gavinoblog.common.utils.TaleUtils;
 import lut.software.gavinoblog.controller.BaseController;
 import lut.software.gavinoblog.dto.StatisticsDto;
+import lut.software.gavinoblog.pojo.Comment;
 import lut.software.gavinoblog.pojo.Content;
 import lut.software.gavinoblog.pojo.Log;
 import lut.software.gavinoblog.pojo.User;
@@ -51,12 +51,13 @@ public class IndexController extends BaseController {
     @Autowired
     private SiteService siteService;
 
+
     @ApiOperation("进入首页")
     @GetMapping(value = {"","/index"})
     public String index(HttpServletRequest request) {
         LOGGER.info("Enter admin index method");
         // 获取5条评论
-        List<ErrorConstant.Comment> comments = siteService.getComments(5);
+        List<Comment> comments = siteService.getComments(5);
         // 获取5篇文章
         List<Content> contents = siteService.getNewArticles(5);
         // 获取后台统计数
@@ -93,7 +94,7 @@ public class IndexController extends BaseController {
      */
     @PostMapping(value = "/profile")
     @ResponseBody
-    public ResultResponse saveProfile(
+    public APIResponse saveProfile(
             @RequestParam String screenName,
             @RequestParam String email,
             HttpServletRequest request,
@@ -116,7 +117,7 @@ public class IndexController extends BaseController {
             originAL.setEmail(email);
             session.setAttribute(WebConst.LOGIN_SESSION_KEY, originAL);
         }
-        return ResultResponse.success();
+        return APIResponse.success();
     }
 
     /**
@@ -129,7 +130,7 @@ public class IndexController extends BaseController {
      */
     @PostMapping(value = "/password")
     @ResponseBody
-    public ResultResponse upPwd(
+    public APIResponse upPwd(
             @RequestParam String oldPassword,
             @RequestParam String newPassword,
             HttpServletRequest request,
@@ -137,15 +138,15 @@ public class IndexController extends BaseController {
     ) {
         User users = this.user(request);
         if (StringUtils.isBlank(oldPassword) || StringUtils.isBlank(newPassword)) {
-            return ResultResponse.fail("请确认信息输入完整");
+            return APIResponse.fail("请确认信息输入完整");
         }
 
         if (!users.getPassword().equals(TaleUtils.MD5encode(users.getUsername() + oldPassword))) {
-            return ResultResponse.fail("旧密码错误");
+            return APIResponse.fail("旧密码错误");
         }
 
         if (newPassword.length() < 6 || newPassword.length() > 14) {
-            return ResultResponse.fail("请输入6-14位密码");
+            return APIResponse.fail("请输入6-14位密码");
         }
 
         try {
@@ -160,7 +161,7 @@ public class IndexController extends BaseController {
             User originAL = (User) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
             originAL.setPassword(pwd);
             session.setAttribute(WebConst.LOGIN_SESSION_KEY,originAL);
-            return ResultResponse.success();
+            return APIResponse.success();
         } catch (Exception e) {
             String msg = "密码修改失败";
             if (e instanceof BusinessException) {
@@ -168,7 +169,7 @@ public class IndexController extends BaseController {
             } else {
                 LOGGER.error(msg,e);
             }
-            return ResultResponse.fail(msg);
+            return APIResponse.fail(msg);
         }
     }
 

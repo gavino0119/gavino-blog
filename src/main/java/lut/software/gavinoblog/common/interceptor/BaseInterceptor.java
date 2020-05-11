@@ -3,7 +3,13 @@ package lut.software.gavinoblog.common.interceptor;
 import lut.software.gavinoblog.common.constant.Types;
 import lut.software.gavinoblog.common.constant.WebConst;
 import lut.software.gavinoblog.common.utils.*;
+import lut.software.gavinoblog.dto.MetaDto;
+import lut.software.gavinoblog.dto.StatisticsDto;
+import lut.software.gavinoblog.pojo.Options;
 import lut.software.gavinoblog.pojo.User;
+import lut.software.gavinoblog.service.meta.MetaService;
+import lut.software.gavinoblog.service.option.OptionService;
+import lut.software.gavinoblog.service.site.SiteService;
 import lut.software.gavinoblog.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,11 +37,24 @@ public class BaseInterceptor implements HandlerInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseInterceptor.class);
     private static final String USER_AGENT = "User-Agent";
 
+
     @Autowired
     private UserService userService;
 
     @Autowired
+    private OptionService optionService;
+
+    @Autowired
     private Commons commons;
+
+    @Autowired
+    private AdminCommons adminCommons;
+
+    @Autowired
+    private MetaService metaService;
+
+    @Autowired
+    private SiteService siteService;
 
     @Autowired
     private HttpSession session;
@@ -43,7 +62,14 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     private MapCache cache = MapCache.single();
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @param o
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
@@ -83,11 +109,49 @@ public class BaseInterceptor implements HandlerInterceptor {
         return true;
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @param o
+     * @param view
+     * @throws Exception
+     */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView view) throws Exception {
+        Options ov = optionService.getOptionByName("site_record");
+        // 分类总数
+        Long categoryCount = metaService.getMetasCountByType(Types.CATEGORY.getType());
+        // 标签总数
+        Long tagCount = metaService.getMetasCountByType(Types.TAG.getType());
+        // 获取文章总数
+        StatisticsDto statistics = siteService.getStatistics();
+        // 获取友情链接
+        List<MetaDto> links = metaService.getMetaList(Types.LINK.getType(),null,WebConst.MAX_POSTS);
 
+        session.setAttribute("categoryCount",categoryCount);
+        session.setAttribute("tagCount",tagCount);
+        session.setAttribute("articleCount",statistics.getArticles());
+        session.setAttribute("links",links);
         request.setAttribute("commons", commons);
-
+        request.setAttribute("option", ov);
+        request.setAttribute("adminCommons", adminCommons);
+        initSiteConfig(request);
     }
 
+    private void initSiteConfig(HttpServletRequest request) {
+        if (WebConst.initConfig.isEmpty()) {
+            List<Options> options = optionService.getOptions();
+            Map<String, String> querys = new HashMap<>();
+            options.forEach(option -> {
+                querys.put(option.getName(),option.getValue());
+            });
+            WebConst.initConfig = querys;
+        }
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+
+    }
 }
